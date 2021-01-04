@@ -1,4 +1,4 @@
-package com.example.repositorytask.remote
+package com.example.repositorytask.data.remote
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

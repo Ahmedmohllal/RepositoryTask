@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".ui.RepoDetails">
+    tools:context=".presentation.ui.ContributorsActivity"
+    android:background="@color/purple_700">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,7 +27,7 @@
                 style="@style/MyTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Repository name: " />
+                android:text="Repository" />
 
             <TextView
                 android:id="@+id/repoName"
@@ -66,7 +67,7 @@
                 style="@style/MyTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Watchers Number" />
+                android:text="Watchers Number: " />
 
             <TextView
                 android:id="@+id/repoWatchers"

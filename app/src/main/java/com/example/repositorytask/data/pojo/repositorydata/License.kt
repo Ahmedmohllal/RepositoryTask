@@ -1,4 +1,4 @@
-package com.example.repositorytask.pojo.repositorydata
+package com.example.repositorytask.data.pojo.repositorydata
 
 
 import com.google.gson.annotations.SerializedName

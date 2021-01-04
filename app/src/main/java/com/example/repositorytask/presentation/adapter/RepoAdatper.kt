@@ -1,4 +1,4 @@
-package com.example.repositorytask.adapter
+package com.example.repositorytask.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.repositorytask.R
-import com.example.repositorytask.pojo.repositorydata.UserRepoItem
+import com.example.repositorytask.data.pojo.repositorydata.UserRepoItem
 
-class RepoNameAdatper(val listener: OnRepoItemClick) :
-    RecyclerView.Adapter<RepoNameAdatper.RepoViewHolder>() {
+class RepoAdatper(val listener: OnRepoItemClick) :
+    RecyclerView.Adapter<RepoAdatper.RepoViewHolder>() {
     var arrayList = ArrayList<UserRepoItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {

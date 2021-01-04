@@ -1,0 +1,131 @@
+[1mdiff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml[m
+[1mindex 8ada373..227f923 100644[m
+[1m--- a/app/src/main/AndroidManifest.xml[m
+[1m+++ b/app/src/main/AndroidManifest.xml[m
+[36m@@ -7,12 +7,13 @@[m
+     <application[m
+         android:allowBackup="true"[m
+         android:icon="@mipmap/ic_launcher"[m
+[31m-        android:label="@string/app_name"[m
+         android:roundIcon="@mipmap/ic_launcher_round"[m
+         android:supportsRtl="true"[m
+         android:theme="@style/Theme.RepositoryTask">[m
+[31m-        <activity android:name=".ui.RepoDetails"></activity>[m
+[31m-        <activity android:name=".ui.MainActivity">[m
+[32m+[m[32m        <activity android:name=".presentation.ui.ContributorsActivity"[m
+[32m+[m[32m            android:label="Contributors"></activity>[m
+[32m+[m[32m        <activity android:name=".presentation.ui.RepositoriesActivity"[m
+[32m+[m[32m            android:label="All Repositories">[m
+             <intent-filter>[m
+                 <action android:name="android.intent.action.MAIN" />[m
+ [m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/pojo/contributors/contributor.kt b/app/src/main/java/com/example/repositorytask/data/pojo/contributors/contributor.kt[m
+[1mindex 66e033c..58c755a 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/pojo/contributors/contributor.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/pojo/contributors/contributor.kt[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-package com.example.repositorytask.pojo.contributors[m
+[32m+[m[32mpackage com.example.repositorytask.data.pojo.contributors[m
+ [m
+ [m
+ import com.google.gson.annotations.SerializedName[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/pojo/contributors/contributorItem.kt b/app/src/main/java/com/example/repositorytask/data/pojo/contributors/contributorItem.kt[m
+[1mindex cc2ce05..c24fc1c 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/pojo/contributors/contributorItem.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/pojo/contributors/contributorItem.kt[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-package com.example.repositorytask.pojo.contributors[m
+[32m+[m[32mpackage com.example.repositorytask.data.pojo.contributors[m
+ [m
+ [m
+ import com.google.gson.annotations.SerializedName[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/License.kt b/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/License.kt[m
+[1mindex 0ca7547..a7204d5 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/License.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/License.kt[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-package com.example.repositorytask.pojo.repositorydata[m
+[32m+[m[32mpackage com.example.repositorytask.data.pojo.repositorydata[m
+ [m
+ [m
+ import com.google.gson.annotations.SerializedName[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/Owner.kt b/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/Owner.kt[m
+[1mindex de6c750..b3f7695 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/Owner.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/Owner.kt[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-package com.example.repositorytask.pojo.repositorydata[m
+[32m+[m[32mpackage com.example.repositorytask.data.pojo.repositorydata[m
+ [m
+ [m
+ import com.google.gson.annotations.SerializedName[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/UserRepo.kt b/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/UserRepo.kt[m
+[1mindex 6d1951b..6ecc466 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/UserRepo.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/UserRepo.kt[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-package com.example.repositorytask.pojo.repositorydata[m
+[32m+[m[32mpackage com.example.repositorytask.data.pojo.repositorydata[m
+ [m
+ [m
+ class UserRepo : ArrayList<UserRepoItem>()[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/UserRepoItem.kt b/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/UserRepoItem.kt[m
+[1mindex 4976bd7..49f4992 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/UserRepoItem.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/pojo/repositorydata/UserRepoItem.kt[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-package com.example.repositorytask.pojo.repositorydata[m
+[32m+[m[32mpackage com.example.repositorytask.data.pojo.repositorydata[m
+ [m
+ [m
+ import com.google.gson.annotations.SerializedName[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/remote/RemoteApi.kt b/app/src/main/java/com/example/repositorytask/data/remote/RemoteApi.kt[m
+[1mindex e2578b0..8ed2167 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/remote/RemoteApi.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/remote/RemoteApi.kt[m
+[36m@@ -1,7 +1,7 @@[m
+[31m-package com.example.repositorytask.remote[m
+[32m+[m[32mpackage com.example.repositorytask.data.remote[m
+ [m
+[31m-import com.example.repositorytask.pojo.contributors.contributor[m
+[31m-import com.example.repositorytask.pojo.repositorydata.UserRepo[m
+[32m+[m[32mimport com.example.repositorytask.data.pojo.contributors.contributor[m
+[32m+[m[32mimport com.example.repositorytask.data.pojo.repositorydata.UserRepo[m
+ import io.reactivex.Observable[m
+ import retrofit2.http.GET[m
+ import retrofit2.http.Path[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/remote/RetrofitModule.kt b/app/src/main/java/com/example/repositorytask/data/remote/RetrofitModule.kt[m
+[1mindex 104731a..b5daa21 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/remote/RetrofitModule.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/remote/RetrofitModule.kt[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-package com.example.repositorytask.remote[m
+[32m+[m[32mpackage com.example.repositorytask.data.remote[m
+ [m
+ import retrofit2.Retrofit[m
+ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/data/repo/DataRepo.kt b/app/src/main/java/com/example/repositorytask/data/repo/DataRepo.kt[m
+[1mindex a421388..4cbfd43 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/data/repo/DataRepo.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/data/repo/DataRepo.kt[m
+[36m@@ -1,9 +1,9 @@[m
+[31m-package com.example.repositorytask.repo[m
+[32m+[m[32mpackage com.example.repositorytask.data.repo[m
+ [m
+[31m-import com.example.repositorytask.pojo.contributors.contributor[m
+[31m-import com.example.repositorytask.pojo.repositorydata.UserRepo[m
+[31m-import com.example.repositorytask.remote.RemoteApi[m
+[31m-import com.example.repositorytask.remote.RetrofitModule[m
+[32m+[m[32mimport com.example.repositorytask.data.pojo.contributors.contributor[m
+[32m+[m[32mimport com.example.repositorytask.data.pojo.repositorydata.UserRepo[m
+[32m+[m[32mimport com.example.repositorytask.data.remote.RemoteApi[m
+[32m+[m[32mimport com.example.repositorytask.data.remote.RetrofitModule[m
+ import io.reactivex.Observable[m
+ [m
+ class DataRepo(private val api: RemoteApi = RetrofitModule().getClient()) {[m
+[1mdiff --git a/app/src/main/java/com/example/repositorytask/presentation/adapter/ContributorAdapter.kt b/app/src/main/java/com/example/repositorytask/presentation/adapter/ContributorAdapter.kt[m
+[1mindex 6ce3c26..1012cf9 100644[m
+[1m--- a/app/src/main/java/com/example/repositorytask/presentation/adapter/ContributorAdapter.kt[m
+[1m+++ b/app/src/main/java/com/example/repositorytask/presentation/adapter/ContributorAdapter.kt[m
+[36m@@ -1,4

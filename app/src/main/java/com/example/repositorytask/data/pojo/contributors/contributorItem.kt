@@ -1,11 +1,13 @@
-package com.example.repositorytask.pojo.repositorydata
+package com.example.repositorytask.data.pojo.contributors
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Owner(
+data class contributorItem(
     @SerializedName("avatar_url")
     val avatarUrl: String,
+    @SerializedName("contributions")
+    val contributions: Int,
     @SerializedName("events_url")
     val eventsUrl: String,
     @SerializedName("followers_url")

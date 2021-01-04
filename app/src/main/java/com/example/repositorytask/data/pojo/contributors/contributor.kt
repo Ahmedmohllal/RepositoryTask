@@ -1,4 +1,4 @@
-package com.example.repositorytask.pojo.contributors
+package com.example.repositorytask.data.pojo.contributors
 
 
 import com.google.gson.annotations.SerializedName

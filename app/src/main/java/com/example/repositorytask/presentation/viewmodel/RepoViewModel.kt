@@ -1,34 +1,36 @@
-package com.example.repositorytask.viewmodel
+package com.example.repositorytask.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.repositorytask.pojo.contributors.contributorItem
-import com.example.repositorytask.pojo.repositorydata.UserRepoItem
-import com.example.repositorytask.repo.DataRepo
+import com.example.repositorytask.data.pojo.contributors.contributorItem
+import com.example.repositorytask.data.pojo.repositorydata.UserRepoItem
+import com.example.repositorytask.data.repo.DataRepo
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class RepoViewModel : ViewModel() {
+class RepoViewModel(private val repo: DataRepo = DataRepo()) : ViewModel() {
 
     var compositeDisposable = CompositeDisposable()
-    var mutableLiveData = MutableLiveData<ArrayList<UserRepoItem>>()
+    var repoLiveData = MutableLiveData<ArrayList<UserRepoItem>>()
     var contributorLiveData = MutableLiveData<ArrayList<contributorItem>>()
 
     //fetch data in io-thread and send it to MainThread
-    fun fetchData(){
-        compositeDisposable.add(DataRepo().getAllRepo()
+    fun fetchAllRepo(){
+        compositeDisposable.add(
+            DataRepo().getAllRepo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    mutableLiveData.value = it
+                    repoLiveData.value = it
                 })
 
     }
 
     //fetch all Contributors and send it to MainThread
-    fun fetchContributor(repoName : String ){
-        compositeDisposable.add(DataRepo().getAllContributor(repoName)
+    fun fetchContributors(repoName : String ){
+        compositeDisposable.add(
+            DataRepo().getAllContributor(repoName)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
