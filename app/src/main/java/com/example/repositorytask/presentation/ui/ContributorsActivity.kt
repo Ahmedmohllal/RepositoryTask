@@ -3,6 +3,8 @@ package com.example.repositorytask.presentation.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +18,7 @@ import com.example.repositorytask.data.pojo.contributors.contributorItem
 import com.example.repositorytask.presentation.viewmodel.RepoViewModel
 
 class ContributorsActivity : AppCompatActivity() {
+    lateinit var progressBar: ProgressBar
     lateinit var nameView: TextView
     lateinit var forkView: TextView
     lateinit var watcherView: TextView
@@ -41,10 +44,12 @@ class ContributorsActivity : AppCompatActivity() {
 
     }
 
-    private fun initViews(){
+    private fun initViews() {
         nameView = findViewById(R.id.repoName)
         forkView = findViewById(R.id.repoForks)
         watcherView = findViewById(R.id.repoWatchers)
+        progressBar = findViewById(R.id.progress)
+        progressBar.visibility = View.VISIBLE
         nameView.text = repoName
         forkView.text = repoForks.toString()
         watcherView.text = repoWatchers.toString()
@@ -56,12 +61,7 @@ class ContributorsActivity : AppCompatActivity() {
         contributorAdapter = ContributorAdapter()
         contRecyclerView.adapter = contributorAdapter
         contRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        contRecyclerView.addItemDecoration(
-            DividerItemDecoration(
-                this,
-                DividerItemDecoration.VERTICAL
-            )
-        )
+
     }
 
     //observe data from viewModel
@@ -72,6 +72,7 @@ class ContributorsActivity : AppCompatActivity() {
             object : Observer<ArrayList<contributorItem>> {
                 override fun onChanged(t: ArrayList<contributorItem>?) {
                     contributorAdapter.setList(t!!)
+                    progressBar.visibility = View.INVISIBLE
                 }
 
             })

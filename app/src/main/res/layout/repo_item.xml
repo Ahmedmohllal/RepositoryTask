@@ -6,10 +6,10 @@
 
     <TextView
         android:id="@+id/repo_name"
-        style="@style/MyTextViewStyle"
+        style="@style/myTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:padding="25dp"
         android:text="Repo Name" />
 
 </LinearLayout>

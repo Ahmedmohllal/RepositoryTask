@@ -8,6 +8,16 @@
     tools:context=".presentation.ui.ContributorsActivity"
     android:background="@color/purple_700">
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -24,14 +34,14 @@
             android:padding="8dp">
 
             <TextView
-                style="@style/MyTextViewStyle"
+                style="@style/repoInfoStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Repository" />
+                android:text="Repository: " />
 
             <TextView
                 android:id="@+id/repoName"
-                style="@style/MyTextViewStyle"
+                style="@style/myTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Android-MonthCalendarWidget" />
@@ -44,14 +54,14 @@
             android:padding="8dp">
 
             <TextView
-                style="@style/MyTextViewStyle"
+                style="@style/repoInfoStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forks Number: " />
 
             <TextView
                 android:id="@+id/repoForks"
-                style="@style/MyTextViewStyle"
+                style="@style/myTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 273" />
@@ -64,14 +74,14 @@
             android:padding="8dp">
 
             <TextView
-                style="@style/MyTextViewStyle"
+                style="@style/repoInfoStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Watchers Number: " />
 
             <TextView
                 android:id="@+id/repoWatchers"
-                style="@style/MyTextViewStyle"
+                style="@style/myTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 215" />

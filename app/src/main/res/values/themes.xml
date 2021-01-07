@@ -14,8 +14,20 @@
         <!-- Customize your theme here. -->
 
     </style>
-    <style name="MyTextViewStyle" parent="android:Widget.TextView">
+
+    <style name="myTextViewStyle" parent="android:Widget.TextView">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+
+    </style>
+
+    <style name="repoInfoStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+
+
     </style>
 </resources>
